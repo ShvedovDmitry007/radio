@@ -21,6 +21,26 @@ modalClosedBtn.addEventListener('click', function() {
   modalOverlay.classList.remove('header-modal-overlay--visible');
 });
 
+// БУРГЕР-МЕНЮ 
+const burger = document.querySelector('.header-burger');
+const menu = document.querySelector('.header-nav');
+const menuLinks = menu.querySelectorAll('.header-nav__link');
+
+burger.addEventListener('click', function () {
+    burger.classList.toggle('burger--active');
+    menu.classList.toggle('header-nav--active');
+    document.body.classList.toggle('stop-scroll');
+});
+
+menuLinks.forEach(function (el) {
+    el.addEventListener('click', function () {
+    burger.classList.remove('burger--active');
+    menu.classList.remove('header-nav--active');
+    document.body.classList.remove('stop-scroll');
+    });
+});
+
+
 // АККОРДЕОН
 new Accordion('.guests-accordion__list', {
 	elementClass: 'guests-accordion__item_mod',
@@ -34,10 +54,34 @@ const swiper = new Swiper('.swiper', {
 	slidesPerView: 4,
 	spaceBetween: 30,
   loop: true,
+
+  breakpoints: {
+
+    300: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+
+    1200: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+
+    1400: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    }
+  },
+
+  
+
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-  },
+  }
+
+  
+  
   // autoplay: {
   //   delay: 3000,
   //   stopOnLastSlide: false,

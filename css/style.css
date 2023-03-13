@@ -98,15 +98,14 @@ button {
   display: flex;
   align-items: center;
   padding: 20px 0 19px;
-  border-bottom: 1px solid var(--pale-blue);
 }
 
-.header__logo {
+.header-logo {
   display: flex;
   align-items: center;
 }
 
-.header__logo_img {
+.header-logo__img {
   margin-right: 70px;
 }
 
@@ -137,9 +136,17 @@ button {
   margin-right: 39px;
 }
 
+.header__mobile-btn {
+  display: none;
+}
+
 .header-nav__link, .header-submenu__link {
   padding: 4px 10px;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.footer__nav-link {
+  transition: color 0.3s ease-in-out;
 }
 
 .header-nav__link:hover, .header-submenu__link:hover, .footer__nav-link:hover {
@@ -285,6 +292,10 @@ button {
   line-height: 16px;
   letter-spacing: 0.1px;
   color: var(--dark);
+}
+
+.header__menu-top, .header__menu-bottom {
+  border-bottom: 1px solid var(--pale-blue);
 }
 
 .header-ether {
@@ -645,7 +656,8 @@ button {
 .podcasts-card {
   display: flex;
   margin-bottom: 30px;
-  width: 540px;
+  max-width: 540px;
+  width: 100%;
   height: 140px;
   background-color: var(--white);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -660,7 +672,7 @@ button {
 }
 
 .podcasts-card.podcasts-card--visible {
-  display: block;
+  display:flex;
 }
 
 .podcasts-card__date {
@@ -691,98 +703,98 @@ button {
   border-bottom: 1px solid var(--pale-blue);
 }
 
-.podcasts-card__play-button {
+.podcasts-card-btn {
   display: flex;
   align-items: center;
   padding: 0;
   padding-top: 5px;
 }
 
-.podcasts-card__play-button svg {
+.podcasts-card-btn svg {
   transition: fill 0.3s ease-in-out;
 }
 
-.podcasts-card__play-button_play circle {
+.podcasts-card-btn__play circle {
   stroke: var(--grey);
   transition: stroke 0.3s ease-in-out;
 }
 
-.podcasts-card__play-button_play:hover circle {
+.podcasts-card-btn__play:hover circle {
   stroke: var(--blue-lilac);
 }
 
-.podcasts-card__play-button_play:focus circle {
+.podcasts-card-btn__play:focus circle {
   stroke: var(--very-soft-blue);
 }
 
-.podcasts-card__play-button_play:active circle {
+.podcasts-card-btn__play:active circle {
   stroke: var(--dark-violet);
 }
 
-.podcasts-card__play-button_play path {
+.podcasts-card-btn__play path {
   fill: var(--grey);
   transition: fill 0.3s ease-in-out;
 }
 
-.podcasts-card__play-button_play:hover path {
+.podcasts-card-btn__play:hover path {
   fill: var(--blue-lilac);
 }
 
-.podcasts-card__play-button_play:focus path {
+.podcasts-card-btn__play:focus path {
   fill: var(--very-soft-blue);
 }
 
-.podcasts-card__play-button_play:active path {
+.podcasts-card-btn__play:active path {
   fill: var(--white);
 }
 
-.podcasts-card__play-button:active svg {
+.podcasts-card-btn:active svg {
   fill: var(--dark-violet);
 }
 
-.podcasts-card__play-button_pause {
+.podcasts-card-btn__pause {
   display: none;
 } 
 
-.podcasts-card__play-button_pause circle {
+.podcasts-card-btn__pause circle {
   stroke: var(--grey);
   transition: stroke 0.3s ease-in-out;
 }
 
-.podcasts-card__play-button_pause:hover circle {
+.podcasts-card-btn__pause:hover circle {
   stroke: var(--blue-lilac);
 }
 
-.podcasts-card__play-button_pause:focus circle {
+.podcasts-card-btn__pause:focus circle {
   stroke: var(--very-soft-blue);
 }
 
-.podcasts-card__play-button_pause:active circle {
+.podcasts-card-btn__pause:active circle {
   stroke: var(--dark-violet);
 }
 
-.podcasts-card__play-button_pause rect {
+.podcasts-card-btn__pause rect {
   fill: var(--grey);
   transition: fill 0.3s ease-in-out;
 }
 
-.podcasts-card__play-button_pause:hover rect {
+.podcasts-card-btn__pause:hover rect {
   fill: var(--blue-lilac);
 }
 
-.podcasts-card__play-button_pause:focus rect {
+.podcasts-card-btn__pause:focus rect {
   fill: var(--very-soft-blue);
 }
 
-.podcasts-card__play-button_pause:active rect {
+.podcasts-card-btn__pause:active rect {
   fill: var(--white);
 }
 
-.podcasts-card__play-button_play--hidden {
+.podcasts-card-btn__play--hidden {
   display: none;
 }
 
-.podcasts-card__play-button_pause--active {
+.podcasts-card-btn__pause--active {
   display: flex;
 }
 
@@ -995,14 +1007,14 @@ button {
   position: relative;
   flex: 1 1 200px;
   width: calc(255 / 540 * 100%);
-  height: 258px;
+  /* height: 258px; */
   border: 1px solid var(--pale-blue);
 }
 
 .broadcast-card {
   padding: 0;
   width: 100%;
-  max-width: 255px;
+  /* max-width: 255px; */
   transition: outline 0.3s ease-in-out;
 }
 
@@ -1212,7 +1224,7 @@ button {
 
 /* guests */
 .guests {
-  padding: 94px 0 95px 0;
+  padding: 94px 0 94px 0;
   background-color: var(--dark);
 }
 
@@ -1261,35 +1273,25 @@ button {
 }
 
 .guests-card__list {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 30px 0 17px 0;
+  padding: 30px 0 23px 0;
   column-count: 4;
   column-gap: 30px;
   list-style: none;
   border-bottom: 1px solid var(--very-soft-blue);
 }
 
-.guests-block--active .guests-card__list {
+.guests-card__list--active .guests-card__list {
 	visibility: visible;
 }
 
-.guests-accordion__item {
+/* .guests-accordion__item {
   width: 730px;
-}
-
-/* .guests-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 160px;
 } */
 
-.guests-block__btn {
+.guests-block-btn {
   display: inline-block;
   margin-bottom: 14px;
   padding: 0;
-  /* width: 160px; */
   text-align: left;
   background-color: transparent;
   color: var(--white);
@@ -1304,7 +1306,7 @@ button {
   align-items: center;
   justify-content: space-between;
   text-align: left;
-  padding: 20px 0 19px 0;
+  padding: 20px 0 20px 0;
   width: 100%;
   font-size: 20px;
   line-height: 20px;
@@ -1348,7 +1350,7 @@ button {
   stroke:var(--very-soft-blue);
 }
 
-.guests-block--active .guests-accordion__btn svg {
+.guests-card__list--active .guests-accordion__btn svg {
   transform: rotate(180deg);
 }
 
@@ -1363,7 +1365,7 @@ button {
 }
 
 .guest-ether__photo, .guest-social {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 }
 
 .guest-ether__photo {
@@ -1436,15 +1438,15 @@ button {
 }
 
 /* Табы */
-.guests-block__btn {
+.guests-block-btn {
   transition: color 0.3s ease-in-out;
 }
 
-.guests-block__btn:hover, .guests-block__btn:focus {
+.guests-block-btn:hover, .guests-block-btn:focus {
   color: var(--very-soft-blue);
 }
 
-.guests-block__btn:active {
+.guests-block-btn:active {
   color: var(--dark-violet);
 }
 
@@ -1479,7 +1481,7 @@ button {
   color: var(--dark);
 }
 
-.playlists__info {
+.playlists-info {
   position: absolute;
   content: '';
   top: 459px;
@@ -1511,7 +1513,7 @@ button {
   margin-bottom: 15px;
 }
 
-.playlists-form__default {
+.playlists-content__default {
   display: none;
 }
 
@@ -1523,26 +1525,26 @@ button {
   padding-top: 6px;
 }
 
-.playlists-form__label {
+.playlists-content__label {
   display: flex;
   align-items: center;
   height: 26px;
   cursor: pointer;
 }
 
-.playlists-form__text {
+.playlists-content__text {
   padding-left: 11px;
   font-size: 20px;
   line-height: 20px;
   color: var(--dark);
 }
 
-.playlists-form__custom {
+.playlists-content__custom {
   width: 30px;
   height: 30px;
 }
 
-.playlists-form__custom::before  {
+.playlists-content__custom::before  {
   content: '';
   display: inline-block;
   margin-right: 3px;
@@ -1552,20 +1554,20 @@ button {
   border-radius: 50px;
 }
 
-.playlists-form__default:hover+.playlists-form__custom::before {
+.playlists-content__default:hover+.playlists-content__custom::before {
   width: 26px;
   height: 26px;
   border: 2px solid var(--blue-lilac);
 }
 
-.playlists-form__default:checked+.playlists-form__custom::before {
+.playlists-content__default:checked+.playlists-content__custom::before {
   border: 8px solid var(--blue-lilac);
   width: 15px;
   height: 15px;
 }
 
-.playlists-content__info {
-  padding-top: 40px;
+.playlists-info__content {
+  padding-top: 37px;
   width: 300px;
   font-size: 16px;
   line-height: 22px;
@@ -1573,7 +1575,7 @@ button {
   border-top: 1px solid var(--light-grayish-blue);
 }
 
-.playlists-content__indicator {
+.playlists-info__indicator {
   margin-bottom: 6px;
   font-style: italic;
   font-size: 16px;
@@ -1586,7 +1588,7 @@ button {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  padding-top: 16px;
+  padding-top: 13px;
   list-style: none;
   width: 100%;
   max-width: 730px;
@@ -1624,7 +1626,7 @@ button {
   background-color: var(--dark);
 }
 
-.playlists-card__country--uk::before {
+.playlists-card--country-uk::before {
   background-image: url("../img/playlist_1920/uk.jpg");
 }
 
@@ -1899,17 +1901,17 @@ button {
 }
 
 .swiper-button-prev, .swiper-rtl .swiper-button-next {
-  left: -78px;
+  left: -34px;
   right: auto;
 }
 
 .swiper-button-next, .swiper-rtl .swiper-button-prev {
-  right: -78px;
+  right: -34px;
   left: auto;
 }
 
 .swiper-button-next, .swiper-button-prev {
-  top: 448px;
+  top: 446px;
   width: 48px;
   height: 48px;
 }
@@ -1942,6 +1944,7 @@ button {
 .about-form__textarea {
   margin-bottom: 24px;
   padding: 29px 10px 10px 32px;
+  max-width: 100%;
   width: 79%;
   min-height: 109px;
   font-size: 20px;
@@ -1950,6 +1953,7 @@ button {
   border-radius: 30px;
   background-color: transparent;
   color: var(--grey);
+  resize: none;
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 

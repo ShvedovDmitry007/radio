@@ -24,11 +24,13 @@ modalClosedBtn.addEventListener('click', function() {
 // БУРГЕР-МЕНЮ 
 const burger = document.querySelector('.header-burger');
 const menu = document.querySelector('.header-nav');
+const subMenu = document.querySelector('.header-submenu');
 const menuLinks = menu.querySelectorAll('.header-nav__link');
 
 burger.addEventListener('click', function () {
     burger.classList.toggle('burger--active');
     menu.classList.toggle('header-nav--active');
+    subMenu.classList.toggle('header-submenu--active');
     document.body.classList.toggle('stop-scroll');
 });
 
@@ -36,6 +38,7 @@ menuLinks.forEach(function (el) {
     el.addEventListener('click', function () {
     burger.classList.remove('burger--active');
     menu.classList.remove('header-nav--active');
+    subMenu.classList.remove('header-submenu--active');
     document.body.classList.remove('stop-scroll');
     });
 });
@@ -46,7 +49,7 @@ new Accordion('.guests-accordion__list', {
 	elementClass: 'guests-accordion__item_mod',
 	triggerClass: 'guests-accordion__btn',
 	panelClass: 'guests-card',
-	activeClass: 'guests-block--active'
+	activeClass: 'guests-card__list--active'
 });
 
 // СЛАЙДЕР
@@ -59,7 +62,7 @@ const swiper = new Swiper('.swiper', {
 
     300: {
       slidesPerView: 2,
-      spaceBetween: 20,
+      spaceBetween: 25,
     },
 
     1200: {
@@ -70,7 +73,14 @@ const swiper = new Swiper('.swiper', {
     1400: {
       slidesPerView: 4,
       spaceBetween: 30,
-    }
+    },
+
+    700: {
+      slidesPerView: 2,
+      spaceBetween: 25,
+    },
+
+    
   },
 
   
@@ -99,7 +109,7 @@ btnMore.addEventListener('click', () => {
 });
 
 // ГОСТИ
-let tabsBtn = document.querySelectorAll('.guests-block__btn');
+let tabsBtn = document.querySelectorAll('.guests-block-btn');
 let tabsItem = document.querySelectorAll('.guest-ether');
 
 tabsBtn.forEach(function(element){
@@ -137,17 +147,45 @@ const choices = new Choices(selectSearch,{
 
 // Кнопки "Что в Эфире"
 document.querySelector('.header-ether__play-button--prev').addEventListener('click', function () {
-  document.querySelector('.header-ether__play-button--prev .pause').classList.toggle('pause--active')
-  document.querySelector('.header-ether__play-button--prev .play').classList.toggle('play--stop')
+  document.querySelector('.header-ether__play-button--prev .pause').classList.toggle('pause--active');
+  document.querySelector('.header-ether__play-button--prev .play').classList.toggle('play--stop');
 });
 
 document.querySelector('.header-ether__play-button--now').addEventListener('click', function () {
-  document.querySelector('.header-ether__play-button--now .pause').classList.toggle('pause--active')
-  document.querySelector('.header-ether__play-button--now .play').classList.toggle('play--stop')
+  document.querySelector('.header-ether__play-button--now .pause').classList.toggle('pause--active');
+  document.querySelector('.header-ether__play-button--now .play').classList.toggle('play--stop');
 });
 
 // Кнопки "Подкасты"
-document.querySelector('.podcasts-card__play-button').addEventListener('click', function () {
-  document.querySelector('.podcasts-card__play-button_pause').classList.toggle('podcasts-card__play-button_pause--active')
-  document.querySelector('.podcasts-card__play-button_play').classList.toggle('podcasts-card__play-button_play--hidden')
+document.querySelector('.podcasts-card-btn').addEventListener('click', function () {
+  document.querySelector('.podcasts-card-btn__pause').classList.toggle('podcasts-card-btn__pause--active');
+  document.querySelector('.podcasts-card-btn__play').classList.toggle('podcasts-card-btn__play--hidden');
 });
+
+
+
+
+/*блок "Что в эфире?"*/
+// document.querySelectorAll('.header__mobile-btn').addEventListener('click', function () {
+//   document.querySelector('.header-ether__play-button').classList.toggle('header-ether__play-button--active')
+//   document.querySelector('.header-bottom__btns-mobile').classList.toggle('header-bottom__btns-mobile_active')
+//   document.querySelector('.header__bottom').classList.toggle('header__bottom_active')
+// });
+
+
+let mobileBtnEther = document.querySelectorAll('.header__mobile-btn');
+let mobileEtherPlayBtn = document.querySelectorAll('.header-ether');
+
+mobileBtnEther.forEach(function(elemento){
+  elemento.addEventListener('click', function(ell){
+    const path = ell.currentTarget.dataset.path;
+
+    mobileEtherPlayBtn.forEach(function(elemento){ elemento.classList.remove('header-ether--active')});
+    document.querySelector(`[data-target="${path}"]`).classList.add('header-ether--active');
+
+  });
+});
+
+// mobileBtnEther.addEventListener('click', function() {
+//   mobileEtherPlayBtn.classList.remove('header-ether--active');
+// });

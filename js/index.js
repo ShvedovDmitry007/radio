@@ -24,12 +24,14 @@ modalClosedBtn.addEventListener('click', function() {
 // БУРГЕР-МЕНЮ 
 const burger = document.querySelector('.header-burger');
 const menu = document.querySelector('.header-nav');
+const mobileMenu = document.querySelector('.header-mobile-nav');
 const subMenu = document.querySelector('.header-submenu');
 const menuLinks = menu.querySelectorAll('.header-nav__link');
 
 burger.addEventListener('click', function () {
     burger.classList.toggle('burger--active');
     menu.classList.toggle('header-nav--active');
+    mobileMenu.classList.toggle('header-mobile-nav--active');
     subMenu.classList.toggle('header-submenu--active');
     document.body.classList.toggle('stop-scroll');
 });
@@ -38,6 +40,7 @@ menuLinks.forEach(function (el) {
     el.addEventListener('click', function () {
     burger.classList.remove('burger--active');
     menu.classList.remove('header-nav--active');
+    mobileMenu.classList.remove('header-mobile-nav--active');
     subMenu.classList.remove('header-submenu--active');
     document.body.classList.remove('stop-scroll');
     });
@@ -59,36 +62,28 @@ const swiper = new Swiper('.swiper', {
   loop: true,
 
   breakpoints: {
-
     300: {
       slidesPerView: 2,
-      spaceBetween: 25,
+      spaceBetween: 20,
     },
-
     1200: {
       slidesPerView: 2,
       spaceBetween: 30,
     },
-
     1400: {
       slidesPerView: 4,
       spaceBetween: 30,
     },
-
     700: {
       slidesPerView: 2,
       spaceBetween: 25,
     },
-
-    
   },
-
-  
 
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-  }
+  },
 
   
   
@@ -165,14 +160,7 @@ document.querySelector('.podcasts-card-btn').addEventListener('click', function 
 
 
 
-/*блок "Что в эфире?"*/
-// document.querySelectorAll('.header__mobile-btn').addEventListener('click', function () {
-//   document.querySelector('.header-ether__play-button').classList.toggle('header-ether__play-button--active')
-//   document.querySelector('.header-bottom__btns-mobile').classList.toggle('header-bottom__btns-mobile_active')
-//   document.querySelector('.header__bottom').classList.toggle('header__bottom_active')
-// });
-
-
+// Блок "Что в эфире?" 320px
 let mobileBtnEther = document.querySelectorAll('.header__mobile-btn');
 let mobileEtherPlayBtn = document.querySelectorAll('.header-ether');
 
@@ -186,6 +174,53 @@ mobileBtnEther.forEach(function(elemento){
   });
 });
 
-// mobileBtnEther.addEventListener('click', function() {
-//   mobileEtherPlayBtn.classList.remove('header-ether--active');
-// });
+// Валидация формы 
+new JustValidate('.about-data-form', {
+  rules: {
+    name: {
+      required: true,
+      minLength: 2,
+      maxLength: 30
+    },
+    mail: {
+      required: true,
+      email: true
+    },
+  },
+
+  messages: {
+    name: {
+    required:  'Вы не ввели имя',
+    minLength: 'Введите 2 и более символов'
+    },
+    mail: {
+      email: 'Введите корректный e-mail',
+      required: 'Вы не ввели e-mail'
+    },
+  },
+});
+
+new JustValidate('.header-personal__form', {
+  rules: {
+    name: {
+      required: true,
+      minLength: 2,
+      maxLength: 30
+    },
+    password: {
+      required: true,
+      password: true
+    },
+  },
+
+  messages: {
+    name: {
+    required:  'Вы не ввели логин',
+    minLength: 'Введите 2 и более символов'
+    },
+    password: {
+      required: 'Вы не ввели пароль',
+      password: 'Пароль должен содержать минимум 1 цифру и 1 букву'
+    },
+  },
+});

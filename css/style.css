@@ -2,6 +2,9 @@ body {
   font-family: 'Muller', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 p {
   margin: 0;
@@ -115,6 +118,10 @@ button {
 }
 
 .header-burger {
+  display: none;
+}
+
+.header-mobile-nav {
   display: none;
 }
 
@@ -459,6 +466,20 @@ button {
 
 .header-personal__text-link {
   color: var(--blue-lilac);
+  transition: color 0.3s ease-in-out;
+}
+
+.header-personal__text-link:hover {
+  color: var(--blue-lilac);
+  border-bottom: 1px solid var(--blue-lilac);
+}
+
+.header-personal__text-link:focus {
+  color: var(--very-soft-blue);
+}
+
+.header-personal__text-link:active {
+  color: var(--dark-violet);
 }
 
 .header-personal__link svg {
@@ -484,9 +505,14 @@ button {
   width: 60%;
 }
 
+.header-personal__input-block {
+  position: relative;
+}
+
 .header-personal__input {
   margin-bottom: 30px;
   padding: 25px 32px;
+  width: 100%;
   font-size: 20px;
   line-height: 20px;
   color: var(--grey);
@@ -499,6 +525,7 @@ button {
   display: inline-flex;
   margin-bottom: 30px;
   padding: 25px 54px;
+  width: 32%;
   font-size: 20px;
   line-height: 20px;
   color: var(--white);
@@ -1376,7 +1403,6 @@ button {
 
 .guest-social__icon svg {
   fill: #A1A6B4;
-  cursor: pointer;
   transition: fill 0.3s ease-in-out;
 }
 
@@ -1384,15 +1410,15 @@ button {
   margin-right: 26px;
 }
 
-.guest-social__icon svg:hover {
+.guest-social__icon:hover svg {
   fill: var(--blue-lilac);
 }
 
-.guest-social__icon svg:focus {
+.guest-social__icon:focus svg {
   fill: var(--very-soft-blue);
 }
 
-.guest-social__icon svg:active {
+.guest-social__icon:active svg {
   fill: var(--dark-violet);
 }
 
@@ -1552,6 +1578,10 @@ button {
   height: 26px;
   border: 2px solid var(--grey);
   border-radius: 50px;
+}
+
+.playlists-content__mobile-btn {
+  display: none;
 }
 
 .playlists-content__default:hover+.playlists-content__custom::before {
@@ -1759,9 +1789,15 @@ button {
   top: 0;
 }
 
+.info-text {
+  background-image: url(../img/underlining.svg);
+  background-repeat: no-repeat;
+  background-position: 0% 20%;
+}
+
 .info-text__title {
   margin: 0px;
-  margin-bottom: 17px;
+  margin-bottom: 50px;
   font-size: 48px;
   line-height: 100%;
   color: var(--very-soft-orange);
@@ -1957,15 +1993,31 @@ button {
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
-.about-form__data {
+.about-data-form {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
+}
+
+.about-data-form__input {
+  position: relative;
+  width: 37%;
+}
+
+.js-validate-error-label {
+  position: absolute;
+  top: 7px;
+  left: 32px;
+}
+
+.about-data-form__input:first-child {
+  margin-right: 63px;
 }
 
 .about-form__input {
   margin-bottom: 30px;
   padding: 25px 0 25px 32px;
-  width: 37%;
+  width: 100%;
   font-size: 20px;
   line-height: 20px;
   border: 1px solid var(--white);
@@ -1974,6 +2026,20 @@ button {
   color: var(--grey);
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
+
+.about__form-btn {
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 25px 54px;
+  width: 19%;
+  font-size: 20px;
+  line-height: 20px;
+  background-color: var(--blue-lilac);
+  border-radius: 40px;
+  color: var(--white);
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
 
 .about-form__input:hover, .about-form__textarea:hover {
   background-color: var(--very-dark-grayish-blue);
@@ -1988,20 +2054,12 @@ button {
   background-color: transparent;
 }
 
-.about-form__input--name {
+/* .about-form__input--name {
   margin-right: 30px;
-}
+} */
 
-.about__form-btn {
-  display: inline-block;
-  margin-bottom: 30px;
-  padding: 25px 54px;
-  font-size: 20px;
-  line-height: 20px;
-  background-color: var(--blue-lilac);
-  border-radius: 40px;
-  color: var(--white);
-  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+.about-data-form__input-block {
+  display: flex;
 }
 
 /* ЧЕК */
@@ -2092,14 +2150,14 @@ button {
   transition: fill 0.3s ease-in-out;
 }
 
-.footer__top-social svg:hover {
+.footer__top-social:hover svg {
   fill: var(--blue-lilac);
 }
 
-.footer__top-social svg:focus {
-  fill: var(--blue-lilac);
+.footer__top-social:focus svg {
+  fill: var(--very-soft-blue);
 }
 
-.footer__top-social svg:active {
+.footer__top-social:active svg {
   fill: var(--dark-violet);
 }

@@ -819,10 +819,6 @@
     border-right: none;
   }
 
-  /* .header-ether--active .header__mobile-btn svg {
-    transform: rotate(-45deg);
-  } */
-
   .header__mobile-btn {
     display: flex;
     align-items: flex-start;
@@ -1419,7 +1415,6 @@
   }
 
   /* MODAL  */
-
   .header-personal {
     padding: 40px 20px;
     width: 256px;
@@ -1506,7 +1501,7 @@
   }
 
   
-  .header-mobile-submenu__list {
+  .header-mobile-nav__submenu-list {
     padding: 30px 38px 30px 32px;
     display: block;
     column-gap: 37px;
@@ -1514,7 +1509,7 @@
     background-color: #FFF;
   }
 
-  .header-mobile-submenu__item {
+  .header-mobile-nav__submenu-item {
     margin-bottom: 30px;
     font-size: 16px;
     line-height: 16px;

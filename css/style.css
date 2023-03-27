@@ -97,6 +97,10 @@ button {
 }
 
 /* HEADER */
+.header__menu-top, .header__menu-bottom {
+  border-bottom: 1px solid var(--pale-blue);
+}
+
 .header__menu {
   display: flex;
   align-items: center;
@@ -143,10 +147,6 @@ button {
   margin-right: 39px;
 }
 
-.header__mobile-btn {
-  display: none;
-}
-
 .header-nav__link, .header-submenu__link {
   padding: 4px 10px;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -170,33 +170,15 @@ button {
   background-color: transparent;
 }
 
-.header-search__btn {
-  padding: 10px 31px;
-  font-size: 16px;
-  line-height: 16px;
-  border: 2px solid var(--dark);
-  background-color: var(--white);
-  border-radius: 77px;
-  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+.header__mobile-btn {
+  display: none;
 }
 
-.header-search__btn:hover, .broadcast-info__btn:hover {
-  background-color: var(--dark);
-  color: var(--white);
+.header__play-btn {
+  display: none;
 }
 
-.header-search__btn:focus, .broadcast-info__btn:focus {
-  background-color: var(--very-soft-blue);
-  color: var(--dark);
-  border: 2px solid var(--dark);
-}
-
-.header-search__btn:active, .broadcast-info__btn:active {
-  background-color: var(--dark-violet);
-  color: var(--white);
-  border: 2px solid var(--dark-violet);
-}
-
+/* Search form */
 .header-search {
   position: relative;
   display: flex;
@@ -212,11 +194,6 @@ button {
   transition: stroke 0.3s ease-in-out;
 }
 
-.header__play-btn {
-  display: none;
-}
-
-/* Форма поиска */
 .header-search__menu:hover, .header-search__menu:focus {
   stroke: var(--very-soft-blue);
 }
@@ -238,6 +215,18 @@ button {
 
 .header__search-form-show {
   display: flex;
+}
+
+.search-form__input {
+  width: 539px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--blue-lilac);
+}
+
+.search-form__input:focus {
+  outline: none;
 }
 
 .search-form__send {
@@ -267,17 +256,33 @@ button {
   stroke: var(--dark-violet);
 }
 
-.search-form__input {
-  width: 539px;
-  padding: 8px 14px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid var(--blue-lilac);
+.header-search__btn {
+  padding: 10px 31px;
+  font-size: 16px;
+  line-height: 16px;
+  border: 2px solid var(--dark);
+  background-color: var(--white);
+  border-radius: 77px;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.search-form__input:focus {
-  outline: none;
+.header-search__btn:hover, .broadcast-info__btn:hover {
+  background-color: var(--dark);
+  color: var(--white);
 }
+
+.header-search__btn:focus, .broadcast-info__btn:focus {
+  background-color: var(--very-soft-blue);
+  color: var(--dark);
+  border: 2px solid var(--dark);
+}
+
+.header-search__btn:active, .broadcast-info__btn:active {
+  background-color: var(--dark-violet);
+  color: var(--white);
+  border: 2px solid var(--dark-violet);
+}
+/* ------------------  */
 
 .header-submenu {
   position: relative;
@@ -299,10 +304,6 @@ button {
   line-height: 16px;
   letter-spacing: 0.1px;
   color: var(--dark);
-}
-
-.header__menu-top, .header__menu-bottom {
-  border-bottom: 1px solid var(--pale-blue);
 }
 
 .header-ether {
@@ -411,6 +412,7 @@ button {
   background-color: var(--white);
 }
 
+/* Modal window */
 .header-modal-overlay {
   position: fixed;
   z-index: 100;
@@ -592,6 +594,7 @@ button {
 .header-personal__closed:active svg {
   stroke: var(--dark-violet);
 }
+/* -------------------  */
 
 /* HERO */
 .hero-content {
@@ -1582,6 +1585,7 @@ button {
 
 .playlists-content__mobile-btn {
   display: none;
+  cursor: pointer;
 }
 
 .playlists-content__default:hover+.playlists-content__custom::before {

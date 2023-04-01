@@ -66,6 +66,10 @@ const swiper = new Swiper('.swiper', {
       slidesPerView: 2,
       spaceBetween: 20,
     },
+    700: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
     1200: {
       slidesPerView: 2,
       spaceBetween: 30,
@@ -73,10 +77,6 @@ const swiper = new Swiper('.swiper', {
     1400: {
       slidesPerView: 4,
       spaceBetween: 30,
-    },
-    700: {
-      slidesPerView: 2,
-      spaceBetween: 25,
     },
   },
 
@@ -166,10 +166,10 @@ let mobileEtherPlayBtn = document.querySelectorAll('.header-ether');
 
 mobileBtnEther.forEach(function(elemento){
   elemento.addEventListener('click', function(ell){
-    const path = ell.currentTarget.dataset.path;
+    const paths = ell.currentTarget.dataset.paths;
 
     mobileEtherPlayBtn.forEach(function(elemento){ elemento.classList.remove('header-ether--active')});
-    document.querySelector(`[data-target="${path}"]`).classList.add('header-ether--active');
+    document.querySelector(`[data-targets="${paths}"]`).classList.add('header-ether--active');
 
   });
 });
